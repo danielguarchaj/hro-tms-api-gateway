@@ -13,8 +13,17 @@ export const createTurnService = async (data) => {
 export const getTurnsOfTheDayService = async () => {
   try {
     const response = await axios.get(SERVICES.turns.getTurnsOfTheDay);
-    return response.data;
+    return { data: response.data, status: response.status };
   } catch (error) {
-    return error;
+    return { data: error, status: 500 };
+  }
+};
+
+export const updateTurnStatusService = async (payload) => {
+  try {
+    const response = await axios.put(SERVICES.turns.updateTurn, payload);
+    return { data: response.data, status: response.status };
+  } catch (error) {
+    return { data: error, status: 500 };
   }
 };

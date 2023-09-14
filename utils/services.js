@@ -16,6 +16,7 @@ export const SERVICES = {
   },
   turns: {
     createTurn: `${CORE_TURNS_MANAGEMENT_SERVICE}turns`,
-    getTurnsOfTheDay: `${CORE_TURNS_MANAGEMENT_SERVICE}turns/today`
+    updateTurn: `${CORE_TURNS_MANAGEMENT_SERVICE}turns`,
+    getTurnsOfTheDay: `${CORE_TURNS_MANAGEMENT_SERVICE}turns/today`,
   },
 };
