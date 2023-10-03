@@ -7,7 +7,8 @@ import cors from "cors";
 
 const logger = morgan;
 
-import { getAccessTokenRoute, getAreasRoute } from "./routes/authentication";
+import { getAccessTokenRoute } from "./routes/authentication";
+import { protectedRoute } from "./controllers/authentication";
 import { searchPatientRoute } from "./routes/patients";
 import { createTurnRoute, getTurnsOfTheDayRoute } from "./routes/turns";
 
@@ -27,10 +28,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(getAccessTokenRoute);
-app.use(searchPatientRoute);
-app.use(createTurnRoute);
-app.use(getTurnsOfTheDayRoute);
-app.use(getAreasRoute);
+app.use(protectedRoute(searchPatientRoute));
+app.use(protectedRoute(createTurnRoute));
+app.use(protectedRoute(getTurnsOfTheDayRoute));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

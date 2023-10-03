@@ -9,6 +9,7 @@ export const SERVICES = {
   authentication: {
     getAccessToken: `${AUTH_SERVICE_BASE_URL}token/`,
     getAreas: `${AUTH_SERVICE_BASE_URL}areas/`,
+    verifyAccessToken: `${AUTH_SERVICE_BASE_URL}token/verify/`,
   },
   patients: {
     searchPatientsByClinicHistory: `${PATIENTS_SERVICE_BASE_URL}Busqueda/paciente/`,

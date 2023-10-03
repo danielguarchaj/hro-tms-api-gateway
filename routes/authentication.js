@@ -2,6 +2,7 @@ import express from "express";
 import {
   getAccessTokenController,
   getAreasController,
+  verifyAccessTokenController,
 } from "../controllers/authentication";
 const router = express.Router();
 
@@ -13,4 +14,9 @@ export const getAccessTokenRoute = router.post(
 export const getAreasRoute = router.get(
   "/authentication/areas",
   getAreasController
+);
+
+export const verifyAccessTokenRoute = router.post(
+  "/authentication/verify",
+  verifyAccessTokenController
 );
