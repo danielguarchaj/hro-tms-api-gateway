@@ -23,5 +23,6 @@ export const SERVICES = {
   },
   appointments: {
     createAppointments: `${CORE_TURNS_APPOINTMENT_SERVICE}appointments`,
+    getAppointments: `${CORE_TURNS_APPOINTMENT_SERVICE}appointments`,
   },
 };
