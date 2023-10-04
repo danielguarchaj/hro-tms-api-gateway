@@ -4,6 +4,7 @@ export const AUTH_SERVICE_BASE_URL =
 export const PATIENTS_SERVICE_BASE_URL = "https://localhost:7196/api/";
 
 export const CORE_TURNS_MANAGEMENT_SERVICE = `http://localhost:3001/`;
+export const CORE_TURNS_APPOINTMENT_SERVICE = `http://localhost:3001/`;
 
 export const SERVICES = {
   authentication: {
@@ -19,5 +20,8 @@ export const SERVICES = {
     createTurn: `${CORE_TURNS_MANAGEMENT_SERVICE}turns`,
     updateTurn: `${CORE_TURNS_MANAGEMENT_SERVICE}turns`,
     getTurnsOfTheDay: `${CORE_TURNS_MANAGEMENT_SERVICE}turns/today`,
+  },
+  appointments: {
+    createAppointments: `${CORE_TURNS_APPOINTMENT_SERVICE}appointments`,
   },
 };
