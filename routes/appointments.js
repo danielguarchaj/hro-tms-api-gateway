@@ -1,6 +1,10 @@
 import express from "express";
 const router = express.Router();
-import { createAppointmentController, getAppointmentsController } from "../controllers/appointments";
+import {
+  createAppointmentController,
+  getAppointmentsController,
+  getAppointmentsCsvController,
+} from "../controllers/appointments";
 
 export const createAppointmentRoute = router.post(
   "/appointments",
@@ -10,4 +14,9 @@ export const createAppointmentRoute = router.post(
 export const getAppointmentsRoute = router.get(
   "/appointments",
   getAppointmentsController
+);
+
+export const getAppointmentsCsvRoute = router.get(
+  "/appointments/csv",
+  getAppointmentsCsvController
 );

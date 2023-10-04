@@ -11,7 +11,11 @@ import { getAccessTokenRoute } from "./routes/authentication";
 import { protectedRoute } from "./controllers/authentication";
 import { searchPatientRoute } from "./routes/patients";
 import { createTurnRoute, getTurnsOfTheDayRoute } from "./routes/turns";
-import { createAppointmentRoute, getAppointmentsRoute } from "./routes/appointments";
+import {
+  createAppointmentRoute,
+  getAppointmentsRoute,
+  getAppointmentsCsvRoute,
+} from "./routes/appointments";
 
 var app = express();
 
@@ -34,6 +38,7 @@ app.use(protectedRoute(createTurnRoute));
 app.use(protectedRoute(getTurnsOfTheDayRoute));
 app.use(protectedRoute(createAppointmentRoute));
 app.use(protectedRoute(getAppointmentsRoute));
+app.use(protectedRoute(getAppointmentsCsvRoute));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
