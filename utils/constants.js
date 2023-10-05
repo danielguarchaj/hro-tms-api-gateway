@@ -25,3 +25,16 @@ export const OUTLOOK_CALENDAR_HEADERS = [
   "Sensitivity",
   "Description",
 ];
+
+export const TURNS_REPORT_HEADERS = [
+  "Id Turno",
+  "# Historia clinica",
+  "Nombres",
+  "Apellidos",
+  "Sexo",
+  "Fecha y hora de creacion",
+  "Estado",
+  "Area",
+  "Numero de turno",
+  "Fecha y hora de ultima actualizacion",
+];

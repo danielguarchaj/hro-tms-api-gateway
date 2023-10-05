@@ -10,7 +10,12 @@ const logger = morgan;
 import { getAccessTokenRoute } from "./routes/authentication";
 import { protectedRoute } from "./controllers/authentication";
 import { searchPatientRoute } from "./routes/patients";
-import { createTurnRoute, getTurnsOfTheDayRoute } from "./routes/turns";
+import {
+  createTurnRoute,
+  getTurnsOfTheDayRoute,
+  getTurnsReportCsvRoute,
+  getTurnsReportRoute,
+} from "./routes/turns";
 import {
   createAppointmentRoute,
   getAppointmentsRoute,
@@ -36,6 +41,8 @@ app.use(getAccessTokenRoute);
 app.use(protectedRoute(searchPatientRoute));
 app.use(protectedRoute(createTurnRoute));
 app.use(protectedRoute(getTurnsOfTheDayRoute));
+app.use(protectedRoute(getTurnsReportRoute));
+app.use(protectedRoute(getTurnsReportCsvRoute));
 app.use(protectedRoute(createAppointmentRoute));
 app.use(protectedRoute(getAppointmentsRoute));
 app.use(protectedRoute(getAppointmentsCsvRoute));

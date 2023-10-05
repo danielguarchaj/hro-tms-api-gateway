@@ -2,6 +2,8 @@ import {
   createTurnService,
   getTurnsOfTheDayService,
   updateTurnStatusService,
+  getTurnsReportService,
+  buildTurnsReportCsvFileContent,
 } from "../services/turns";
 
 export const createTurnController = async (req, res) => {
@@ -40,4 +42,31 @@ export const updateTurnStatusController = async (req, res) => {
         "An error occurred while updating the turn status to the core service",
     });
   }
+};
+
+export const getTurnsReportController = async (req, res) => {
+  try {
+    const { fromDate, toDate } = req.query;
+    if (!fromDate || !toDate) {
+      return res.status(400).json({ message: "invalid params" });
+    }
+    const response = await getTurnsReportService(fromDate, toDate);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({
+      message: "An error occurred while fetching the turns report",
+    });
+  }
+};
+
+export const getTurnsReportCsvController = async (req, res) => {
+  const { fromDate, toDate } = req.query;
+  if (!fromDate || !toDate) {
+    return res.status(400).json({ message: "invalid params" });
+  }
+  const turns = await getTurnsReportService(fromDate, toDate);
+  const csvContent = buildTurnsReportCsvFileContent(turns);
+  res.setHeader("Content-Type", "text/csv");
+  res.setHeader("Content-Disposition", `attachment; filename=turnos-hro.csv`);
+  res.send(csvContent);
 };

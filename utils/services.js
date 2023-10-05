@@ -20,6 +20,7 @@ export const SERVICES = {
     createTurn: `${CORE_TURNS_MANAGEMENT_SERVICE}turns`,
     updateTurn: `${CORE_TURNS_MANAGEMENT_SERVICE}turns`,
     getTurnsOfTheDay: `${CORE_TURNS_MANAGEMENT_SERVICE}turns/today`,
+    getTurnsReport: `${CORE_TURNS_MANAGEMENT_SERVICE}turns/report/`,
   },
   appointments: {
     createAppointments: `${CORE_TURNS_APPOINTMENT_SERVICE}appointments`,
