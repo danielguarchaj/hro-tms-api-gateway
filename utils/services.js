@@ -1,10 +1,14 @@
 export const AUTH_SERVICE_BASE_URL =
+  process.env.AUTH_SERVICE_URL ||
   "http://localhost:8000/authentication_service/";
 
-export const PATIENTS_SERVICE_BASE_URL = "https://localhost:7196/api/";
+export const PATIENTS_SERVICE_BASE_URL =
+  process.env.PATIENTS_SERVICE_URL || "https://localhost:7196/api/";
 
-export const CORE_TURNS_MANAGEMENT_SERVICE = `http://localhost:3001/`;
-export const CORE_TURNS_APPOINTMENT_SERVICE = `http://localhost:3001/`;
+export const CORE_TURNS_MANAGEMENT_SERVICE =
+  process.env.CORE_TURNS_SERVICE_URL || `http://localhost:3001/`;
+export const CORE_APPOINTMENTS_SERVICE =
+  process.env.CORE_APPOINTMENTS_SERVICE__URL || `http://localhost:3001/`;
 
 export const SERVICES = {
   authentication: {
@@ -23,7 +27,7 @@ export const SERVICES = {
     getTurnsReport: `${CORE_TURNS_MANAGEMENT_SERVICE}turns/report/`,
   },
   appointments: {
-    createAppointments: `${CORE_TURNS_APPOINTMENT_SERVICE}appointments`,
-    getAppointments: `${CORE_TURNS_APPOINTMENT_SERVICE}appointments`,
+    createAppointments: `${CORE_APPOINTMENTS_SERVICE}appointments`,
+    getAppointments: `${CORE_APPOINTMENTS_SERVICE}appointments`,
   },
 };

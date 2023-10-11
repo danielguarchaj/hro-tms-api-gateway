@@ -24,8 +24,10 @@ import {
 
 var app = express();
 
+const CLIENT_APP_URL = process.env.CLIENT_APP_URL || "http://localhost:3000";
+
 // Configure CORS to allow requests from React app's origin
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: CLIENT_APP_URL }));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
